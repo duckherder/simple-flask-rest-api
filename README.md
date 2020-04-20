@@ -4,14 +4,14 @@
 Example in Python 3 of how to develop a REST API in flask. Useful for fast development of a microservice.
 
 ### Starting the service
-Personal preference is to make use of environments in Anaconda Python. Once installed
-simply create a conda environment and install the necessary packages.
+Simply pip install flask or my personal preference is to make use of a virtual environment. With
+Anaconda Python you can create a conda virtual environment and install the necessary package.
 
     conda create -n simple-flask
     conda activate simple-flask
     conda install flask
     
-To start the web service that supports the REST API implemented in Flask
+To start the web service that supports the REST API implemented in Flask (see important note at bottom of page first)
 
     python simple-flask-rest-api.py
     
@@ -20,8 +20,8 @@ If you wish to make your REST API available to other users on other PCs on a spe
     python simple-flask-rest-api.py --external --port 5001
 
 Note that the Werkzeug web service provided with the flask Python package is **not**
-recommended as a production-ready server. Also note that you may need to open a port on your firewall
-for others to access your microservice.
+recommended as a production-ready or secure server. Also note that you may need to open a
+port on your firewall for others to access your microservice.
 
 ### Accessing the service
 The service can be accessed using the command line tool 'curl' available in most Linux
@@ -92,4 +92,7 @@ To shutdown the service gracefully and avoid using Ctrl-C on the running service
 
     c:/> curl -X POST http://127.0.0.1:5000/simpleservice/api/v1.0/shutdown
 
-Tested on Windows 10 Pro with Anaconda 4.8.2, Python 3.8.2 and Flask 1.1.1.
+Tested on Windows 10 Pro with Anaconda 4.8.2, Python 3.8.2 and Flask 1.1.1. Also
+Ubuntu 18.04, Python 2.7.17 and Flask 1.1.1.
+
+**NOTE:** I have had issues with Avast (20.2.2401 - build 20.2.5130.570) behavioural shield reporting IDP.Generic issues with python.exe when running Flask. Recommendation to use Linux platforms rather than Windows.
