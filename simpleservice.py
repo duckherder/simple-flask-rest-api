@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from argparse import ArgumentParser
 import json
 import threading
+import sys
 
 app = Flask(__name__)
 RECORDS = []
@@ -114,3 +115,4 @@ if __name__ == '__main__':
     else:
         # available on localhost e.g. 127.0.0.1
         app.run(debug=True, port=args.port)
+    sys.exit(0)
